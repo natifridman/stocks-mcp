@@ -2,6 +2,8 @@
 
 This project provides a simple MCP (Modular Command Protocol) server and client for fetching stock information from Google Finance.
 
+This project is built using [FastMCP](https://gofastmcp.com/getting-started/welcome), a Pythonic framework that simplifies the creation of MCP servers and clients. FastMCP handles all the complex protocol details and server management, allowing for clean and intuitive implementation of MCP tools.
+
 ## Features
 
 - Fetch real-time stock prices from Google Finance
@@ -115,5 +117,3 @@ The server provides the following tool:
 ## License
 
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - see the [LICENSE](LICENSE) file for details.
-
-GPL-3.0 is a strong copyleft license that requires anyone who distributes your code or a derivative work to make the source available under the same terms.
