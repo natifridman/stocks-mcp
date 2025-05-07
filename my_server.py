@@ -1,12 +1,11 @@
-from fastmcp import FastMCP, Client
-import requests
+from fastmcp import FastMCP
+import aiohttp
 from bs4 import BeautifulSoup
-import re
 
 mcp = FastMCP("Stock Information MCP Server")
 
 @mcp.tool()
-def get_stock_info(ticker: str) -> dict:
+async def get_stock_info(ticker: str) -> dict:
     """Get stock price and description for a given ticker from Google Finance."""
     try:
         url = f"https://www.google.com/finance/quote/{ticker}"
@@ -14,10 +13,12 @@ def get_stock_info(ticker: str) -> dict:
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         }
         
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url, headers=headers) as response:
+                response.raise_for_status()
+                html = await response.text()
         
-        soup = BeautifulSoup(response.text, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
         
         # Get current price
         price_element = soup.select_one('div.YMlKec.fxKbKc')
