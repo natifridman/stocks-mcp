@@ -30,7 +30,7 @@ This project is built using [FastMCP](https://gofastmcp.com/getting-started/welc
 
    **Or using pip:**
    ```
-   pip install fastmcp requests beautifulsoup4
+   pip install fastmcp aiohttp beautifulsoup4
    ```
 
 ## Usage
@@ -51,13 +51,13 @@ The client can be used in several ways:
 
 1. **With Command Line Arguments**:
    ```
-   uv run my-client.py IBM:NYSE
+   uv run my_client.py IBM:NYSE
    ```
    Replace `IBM:NYSE` with your desired stock ticker.
 
 2. **Interactive Mode**:
    ```
-   uv run my-client.py
+   uv run my_client.py
    ```
    Then enter the ticker when prompted.
 

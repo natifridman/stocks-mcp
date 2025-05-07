@@ -26,4 +26,4 @@ if __name__ == "__main__":
         ticker = input("Enter a stock ticker (e.g., IBM:NYSE): ")
     
     print(f"Fetching information for {ticker}...")
-    asyncio.run(get_stock_info(ticker))
+    asyncio.run(get_stock_info(ticker)) 
